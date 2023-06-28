@@ -4,6 +4,9 @@ const connection = mysql.createConnection({
   user: "muhafars",
   password: "1",
   database: "eduwork_cruds",
+  authPlugins: {
+    password: "1",
+  },
 });
 
 module.exports = connection;
