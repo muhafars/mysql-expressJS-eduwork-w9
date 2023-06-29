@@ -18,6 +18,17 @@ const view = (req, res) => {
     _response(res)
   );
 };
+
+const store = (req, res) => {
+  const { nama, email, alamat } = req.body;
+  connection.query(
+    {
+      sql: "INSERT INTO users (nama, email, alamat) VALUES (?, ?,?)",
+      values: [nama, email, alamat],
+    },
+    _response(res)
+  );
+};
 const _response = res => {
   return (err, result) => {
     if (err) {
@@ -34,4 +45,4 @@ const _response = res => {
   };
 };
 
-module.exports = { index, view };
+module.exports = { index, view, store };

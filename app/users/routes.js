@@ -14,7 +14,7 @@ router.post("/users", upload.single("image"), (req, res) => {
   const { name, price, stock, status } = req.body;
   const image = req.file;
   if (!image) {
-    const target = path.join(__dirname, "uploads", image.originalname);
+    const target = path.join(__dirname, "public/uploads", image.originalname);
     fs.renameSync(image.path, target);
     res.sendFile(target);
   }
